@@ -1,7 +1,7 @@
 var gulp = require('gulp');
 // namespaced depenencies sorted for us!
 var plug = require('gulp-load-plugins')(); //run straight way
-
+//var connect = require('gulp-connect');
 
 /*************  Variable Declarations ****************/
 //  Done separately, since assigns are based on the build
@@ -24,6 +24,27 @@ jsSources = [
 //    'client/components/js/feature/featureController.js',
 //    'client/components/js/dirFeature.js'
 ];
+sassSources = ['client/components/sass/master.scss'];
+htmlSources = [buildDirectory + '*.html'];
+jsonSources = [buildDirectory + 'js/*.json'];
+
+
+/**************** BUILDS ****************/
+environment = process.env.NODE_ENV || 'development';
+/* 
+    for Windoze users, just change this line to 
+    environment = process.env.NODE_ENV || 'production';
+*/
+if (environment==='development') {
+    buildDirectory = 'builds/development/'; 
+    //dont forget trailing slash for concatination!
+    sassStyle = 'expanded';
+} else {
+    buildDirectory = 'builds/production/';
+    sassStyle = 'compressed';
+}
+
+
 
 
 /************* Tasks ****************
@@ -46,11 +67,25 @@ gulp.task('annotate', function(){
 //        .pipe(plug.jshint.reporter('jshint-stylish'));
 //});
 
+//---- @SERVER & live-reloading task
+gulp.task('server', function () {
+    plug.connect.server({
+            root: buildDirectory,
+            port: 8080,
+            livereload: true
+        });
+});
 
+//-------- WATCH   ----------*/
+gulp.task('watch', function() {
+    return gulp
+        .watch(jsSources, ['annotate'])
+        .on('change', watchLog);
 
-
-
-
+    function watchLog(event) {
+        console.log('*** File ' + event.path + ' was ' + event.type + ', running tasks...');
+    }
+});
 
 
 

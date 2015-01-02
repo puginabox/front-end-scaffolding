@@ -12,6 +12,7 @@
         /* Feature modules */
         'app.feature'
         
+        /* Controllers? */        
         // put controllers in here?
     ]);
 
