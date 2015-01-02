@@ -17,10 +17,10 @@ var environment,
 // Array in order of load. destintations plugged into variables for clarity
 jsSources = [
     // project scripts
-    'builds/development/js/app.js',
-    'builds/development/js/controllers/mainController.js',
-    'builds/development/js/controllers/page1Controller.js',
-    'builds/development/js/controllers/page2Controller.js',
-    'builds/development/js/directives/directives.js',
-    'builds/development/js/tests.js'
+    'client/components/js/app.module.js',
+    'client/components/js/core/core.module.js',
+    'client/components/js/core/config.js',
+    'client/components/js/feature/feature.js',
+    'client/components/js/feature/featureController.js',
+    'client/components/js/dirFeature.js'
 ];
