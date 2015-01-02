@@ -1,6 +1,7 @@
 (function () {
     'use strict';
-
+    console.log('2-config loaded');
+    
     var core = angular.module('app.core');
 
     core.config(['$routeProvider',
