@@ -7,3 +7,5 @@ img
 .DS_Store
 .sass-cache
 npm-debug.log
+client/js
+

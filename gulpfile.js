@@ -28,11 +28,61 @@ jsSources = [
 
 /************* Tasks ****************
 
-|--------    ----------*/
+|-------- ANNOTATE   ----------*/
 gulp.task('annotate', function(){
     return gulp
         .src(jsSources)
         .pipe(plug.ngAnnotate({ add: true, single_quotes: true}))
+        .pipe(plug.uglify({mangle: true}))
         .pipe(gulp.dest('client/js'));
     
 });
+
+//-------- JSHINT ------------/ NEEDS FIXING
+//gulp('hint', function(){
+//    return gulp
+//        .src(jsSources)
+//        .pipe(plug.jshint('client/components/js/.jshintrc'))
+//        .pipe(plug.jshint.reporter('jshint-stylish'));
+//});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
