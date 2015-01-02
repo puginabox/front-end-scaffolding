@@ -1,0 +1,9 @@
+#.gitignore template
+
+builds
+node_modules
+client/components/vendor
+img
+.DS_Store
+.sass-cache
+npm-debug.log

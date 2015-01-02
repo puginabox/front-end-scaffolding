@@ -1,0 +1,29 @@
+{
+    "name": "Angular-Gulp-Schaffolding",
+  "version": "0.0.1",
+    "description": "Angular-Gulp-Schaffolding",
+  "authors": [
+    "Griffin Byron"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/johnpapa/ng-demos",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor",
+    "tests"
+  ],
+  "devDependencies": {
+      
+  },
+  "dependencies": {
+    "angular": "~1.2.24",
+    "toastr": "~2.0.1",
+    "jquery": "~2.1.0",
+    "angular-route": "~1.2.24",
+    "angular-animate": "~1.2.24",
+    "angular-sanitize": "~1.2.24",
+    "extras.angular.plus": "~0.9.0"
+  }
+}
