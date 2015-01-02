@@ -8,6 +8,8 @@ Git repo: http://github.com/puginabox/upmc-conference.git
     /client
             index.html
             master.css
+            /js             ------> built dev scripts
+                whatever-is-built.js   
             sass-color-pallettes.html alias
             /components
                 /js

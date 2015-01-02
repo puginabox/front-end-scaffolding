@@ -1,0 +1,36 @@
+{
+  "name": "Angular-Gulped",
+  "version": "0.0.1",
+  "description": "Angular Gulp Project Setup",
+  "private": "true",
+  "author": "Griffin Byron",
+  "license": "MIT",
+  "homepage": "https://github.com/puginabox",
+  "repository": {
+    "type": "git",
+    "url": "https://git@github.com:puginabox/gulp-angular-scaffolding.git"
+  },
+  "scripts": {
+    "init": "npm install",
+    "install": "bower install",
+    "start": "node src/server/app.js",
+    "test": "gulp test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.8.10",
+    "gulp-autoprefixer": "0.0.10",
+    "gulp-concat": "^2.3.3",
+    "gulp-jshint": "^1.7.1",
+    "gulp-load-plugins": "^0.6.0",
+    "gulp-minify-css": "^0.3.7",
+    "gulp-minify-html": "^0.1.4",
+    "gulp-ng-annotate": "^0.4.3",
+    "gulp-nodemon": "^1.0.4",
+    "gulp-rename": "^1.2.0",
+    "gulp-task-listing": "^0.3.0",
+    "gulp-uglify": "^1.0.1",
+    "gulp-util": "^3.0.1",
+    "jshint-stylish": "^0.4.0"
+  }
+}
