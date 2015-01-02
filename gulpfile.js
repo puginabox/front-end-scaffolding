@@ -89,8 +89,9 @@ gulp.task('watch', function() {
 
 
 
+/**************** GULP DEFAULT ****************/
 
-
+//gulp.task('default', ['annotate', 'jshint', 'js', 'compass', 'jsonminify']);
 
 
 

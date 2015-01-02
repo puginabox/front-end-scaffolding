@@ -1,8 +1,18 @@
-#UPMC Conference 2012
-Port over to AngularJS. Features include modularity, testing, Gulp automation, Bower for Dependency Management, Sass/Compass.
+#Front-End AngularJS Scaffolding
 
-Git repo: http://github.com/puginabox/upmc-conference.git
+Features include MVC modularity through a local server/live-reload, Gulp automation, Bower for Dependency Management, Sass/Compass, Karma unit testing, development & production builds. Later I would like to add MongoDB.
 
+Git repo: http://github.com/puginabox/front-end-scaffolding.git
+
+## Still yet to finish:
+- Compass auto-compiling & autoprefixing
+- JS/CSS concat
+- JSON minifying
+- testing
+- clean (for builds)
+- Foundation Sass framework
+- Image optimization
+- Cross-browser autoloading (Safari, Chrome, Opera, Firefox)
 
 ## Structure
     /client
@@ -80,23 +90,21 @@ Git repo: http://github.com/puginabox/upmc-conference.git
 ## Requirements
 
 - Install Node (http://nodejs.org/)
-	- on OSX install DON'T install vi sudo: (https://github.com/sindresorhus/guides/blob/master/npm-global-without-sudo.md). 
+	- on OSX install DON'T install via sudo: (https://github.com/sindresorhus/guides/blob/master/npm-global-without-sudo.md). 
 - In a cli (I use iTerm),  `npm install -g node-inspector bower gulp`
 
 ## Installing Dev Dependencies & Bower Packages
 - `npm install`
+- `bower install`
 
 ## Running
 Runs locally, no database required.
 
 ####Option 1 - Serve
-- `gulp serve-dev` and browse to `http://localhost:7200`
+- `gulp` and browse to `http://localhost:8080`
 
 ####Option 2 - Serve and Debug Node
-Type `gulp serve-dev-debug` and browse to `http://localhost:7200` for the client and `http://localhost:8080/debug?port-5858` to debug the server.
 
-####Option 3 - Serve and Debug Node Breaking on 1st Line
-Type `gulp serve-dev-debug-brk` and browse to `http://localhost:7200` for the client and `http://localhost:8080/debug?port-5858` to debug the server.
 
 ### Production Build
 Production is an optimized build. 
@@ -123,7 +131,7 @@ Production optimizations:
 ## Testing
 - `gulp test`
 
-Testing uses karma, mocha, chai, sinon, ngMidwayTester libraries.
+Testing uses Karma.
 
 ## How It Works
 The app is quite simple and has 2 main routes:
@@ -141,9 +149,6 @@ app --> [
 			ngAnimate,
 			ngRoute,
 			ngSanitize,
-			blocks.exception,
-			blocks.logger,
-			blocks.router
 		]
     ]
 ```
@@ -153,33 +158,6 @@ Core modules shared throughout and include common services. Takes blocks, common
 
 ## blocks Modules
 Block modules - reusable, self-contained blocks of code. These can be extracted and included in other projects as dependencies.
-
-### blocks.logger Module
-The `blocks.logger` module handles logging.
-
-### blocks.exception Module
-The `blocks.exception` module handles exceptions. It depends on the `blocks.logger` module, because the implementation logs the exceptions.
-
-### blocks.router Module
-The `blocks.router` helps adding routes to the $routeProvider.
-
-## node-inspector
-    
-2. Run server & open it in browser
-- `node-debug server/server.js`
-    
-    This loads http://localhost:8080/debug?port-5858 with the node code in the Chrome debugger
-
-### Manually Run in One Terminal Tab
-Run the server with options, and debug
-    
-`node --debug=5858 server/server.js & node-inspector`    
-
-Or
-
-`node-inspector & node --debug server/server.js`
-
- - Note: Debug defaults to 5858
 
 ### node-inspector with Gulp
 Alternative to running node-inspector in its own tab is to use `gulp-shell`
