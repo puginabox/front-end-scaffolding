@@ -13,6 +13,7 @@ Git repo: http://github.com/puginabox/front-end-scaffolding.git
 - Foundation Sass framework
 - Image optimization
 - Cross-browser autoloading (Safari, Chrome, Opera, Firefox)
+- gulp-plumber to prevent tasks from stopping on error
 
 ## Structure
     /client
