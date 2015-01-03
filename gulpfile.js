@@ -1,7 +1,6 @@
 var gulp = require('gulp');
 // namespaced depenencies all sorted...
 var plug = require('gulp-load-plugins')(); //run to the fore
-//var connect = require('gulp-connect');
 
 /*******************************************  Variable Declarations ****************/
 //  Done separately, since assigns are based on the build
@@ -24,52 +23,58 @@ jsSources = [
 //    'staging/components/js/feature/featureController.js',
 //    'staging/components/js/dirFeature.js'
 ];
-sassSources = ['development/components/sass/'];
+sassSources = ['development/components/sass/*.scss'];
 htmlSources = [buildDirectory + '*.html'];
 jsonSources = [buildDirectory + 'js/*.json'];
 
 
-/**************** BUILDS ****************/
-environment = process.env.NODE_ENV || 'staging';
-/* 
-    for Windoze users, just change this line to 
-    environment = process.env.NODE_ENV || 'production';
-*/
-if (environment==='staging') {
-    buildDirectory = 'builds/staging/'; 
-    //dont forget trailing slash for concatination!
-    sassStyle = 'expanded';
-} else {
-    buildDirectory = 'builds/production/';
-    sassStyle = 'compressed';
-}
 
 
 
 
 /******************************************************* Tasks ****************/
 
-//------------------------------------- STYLES
-// Process, combine & minify Sass/Compass stylesheets
+//---------------------------------------------------- STYLES
+
+// Process & Combine Sass/Compass styles
+// nested, expanded, compact, compressed
 gulp.task('styles', function(){
-
-//        .on('error', plug.utils.log)
-//      .pipe(gulp.dest(buildDirectory + 'css')) // this for builds
-
-
-
     return gulp
-        .src('development/components/sass/*.scss')
+        .src(sassSources)
         .pipe(plug.compass({
         css: 'development/styles/css',
         sass: 'development/components/sass',
         image: 'development/img',
-        style: sassStyle
+        style: 'nested',
+        comments: true
+    }))
+    .pipe(plug.plumber({
+        errorHandler: onError
     }))
     .pipe(gulp.dest('development/styles'));
 });
+// ADD LINE COMENTS NOW
 
 
+//----------------------------------------------- STAGING BUILD   
+    gulp.task('minifyCSS', function() {
+        return gulp
+        .src(sassSources)
+        .pipe(plug.compass({
+            css: 'development/styles/css',
+            sass: 'development/components/sass',
+            image: 'development/img',
+            style: 'compact',
+            comments: true
+        }))
+        .pipe(plug.autoprefixer('last 2 version', 'safari 5', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
+        .pipe(plug.cssmin({
+            keepBreaks:true,
+            lineNumbers: true
+        }))
+        .pipe(plug.rename('master.min.css'))
+        .pipe(gulp.dest('builds/staging/'));
+    });  
 
 
 
@@ -115,13 +120,6 @@ gulp.task('scripts', function () {
         }));
 });
 
-//------------------------------------- COPY
-// Copy fonts & other files
-//gulp.task('copyfiles', function () {
-//    gulp.src('./source_directory/**/*.{ttf,woff,eof,svg}')
-//    .pipe(gulp.dest('./fonts'));
-//});
-
 //------------------------------------- SERVER
 gulp.task('server', function () {
     return plug.connect.server({
@@ -153,10 +151,8 @@ var onError = function (err) {
     console.log(err);
 };
 
-// Lets us type "gulp" on the command line and run all of our tasks
 gulp.task('default', ['annotate', 'jshint', 'scripts', 'styles', 'watch', 'server']);
-
-
+gulp.task('deploy', ['annotate', 'jshint', 'scripts', 'styles', 'minifyCSS', 'watch', 'server']);
 
 //gulp.task('default', ['annotate', 'jshint', 'js', 'compass', 'jsonminify']);
 

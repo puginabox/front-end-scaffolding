@@ -1,5 +1,6 @@
 @import url(http://fonts.googleapis.com/css?family=Droid+Sans);
 @import url(http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+/* line 5, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -18,111 +19,111 @@ time, mark, audio, video {
   border: 0;
   font: inherit;
   font-size: 100%;
-  vertical-align: baseline;
-}
+  vertical-align: baseline; }
 
+/* line 22, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 html {
-  line-height: 1;
-}
+  line-height: 1; }
 
+/* line 24, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
-  list-style: none;
-}
+  list-style: none; }
 
+/* line 26, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
-  border-spacing: 0;
-}
+  border-spacing: 0; }
 
+/* line 28, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
-  vertical-align: middle;
-}
+  vertical-align: middle; }
 
+/* line 30, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
-  quotes: none;
-}
-q:before, q:after, blockquote:before, blockquote:after {
-  content: "";
-  content: none;
-}
+  quotes: none; }
+  /* line 103, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+  q:before, q:after, blockquote:before, blockquote:after {
+    content: "";
+    content: none; }
 
+/* line 32, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 a img {
-  border: none;
-}
+  border: none; }
 
+/* line 116, ../../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
-  display: block;
-}
+  display: block; }
 
+/* line 1, ../../components/sass/core/_base.scss */
 * {
   box-sizing: border-box;
-  outline: 0 !important;
-}
+  outline: 0 !important; }
 
+/* line 5, ../../components/sass/core/_base.scss */
 body {
   width: 100%;
   margin: 0 auto;
   text-align: center;
   font-family: 'Droid Sans', sans-serif;
   background: #ddd;
-  font-size: 12px;
-}
+  font-size: 12px; }
 
+/* line 13, ../../components/sass/core/_base.scss */
 h1, p {
   color: #fff;
   font-weight: 400;
   text-decoration: none;
   font-style: normal;
-  line-height: 31px;
-}
+  line-height: 31px; }
 
+/* line 20, ../../components/sass/core/_base.scss */
 h1 {
   padding: 10px 0;
   text-align: left;
   font-size: 1.5rem;
   font-weight: 400;
   font-style: normal;
-  letter-spacing: 6px;
-}
+  letter-spacing: 6px; }
 
+/* line 28, ../../components/sass/core/_base.scss */
 h2 {
   font-size: 25px;
-  color: #231611;
-}
+  color: #231611; }
 
+/* line 32, ../../components/sass/core/_base.scss */
 ul, h2 {
   width: 100%;
   height: 30px;
   list-style: none;
   display: block;
-  padding: 5px 0;
-}
+  padding: 5px 0; }
 
+/* line 41, ../../components/sass/core/_base.scss */
 li {
   float: left;
   margin: 0;
   font-size: 1.5rem;
-  color: #fff;
-}
+  color: #fff; }
 
+/* line 47, ../../components/sass/core/_base.scss */
 nav li {
-  font-size: 1rem;
-}
+  font-size: 1rem; }
 
+/* line 50, ../../components/sass/core/_base.scss */
 p {
   padding: 0;
   margin: 0;
   letter-spacing: 2px;
-  font-size: 1rem;
-}
+  font-size: 1rem; }
 
+/* line 56, ../../components/sass/core/_base.scss */
 span, button {
   float: right;
-  width: 20%;
-}
+  width: 20%; }
 
+/* line 62, ../../components/sass/core/_base.scss */
 a {
   text-decoration: none;
   color: #231611;
@@ -130,26 +131,26 @@ a {
   -moz-transition: all 0.5s ease-in-out;
   -ms-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
-}
+  transition: all 0.5s ease-in-out; }
 
+/* line 67, ../../components/sass/core/_base.scss */
 a:hover {
-  color: #ddd;
-}
+  color: #ddd; }
 
+/* line 71, ../../components/sass/core/_base.scss */
 span {
-  font-size: 14px;
-}
+  font-size: 14px; }
 
+/* line 74, ../../components/sass/core/_base.scss */
 #textBox, button {
   width: 4rem;
   border: 0;
   padding: 5px;
   margin: 2px;
   background: white;
-  cursor: pointer;
-}
+  cursor: pointer; }
 
+/* line 82, ../../components/sass/core/_base.scss */
 button {
   padding: 10px;
   margin: 20px;
@@ -161,13 +162,13 @@ button {
   -moz-transition: all 0.2s ease-in-out;
   -ms-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-}
+  transition: all 0.2s ease-in-out; }
 
+/* line 91, ../../components/sass/core/_base.scss */
 button:hover {
-  background: #50666D;
-}
+  background: #50666D; }
 
+/* line 94, ../../components/sass/core/_base.scss */
 #addButton, #removeButton {
   padding: 5px;
   margin: 2px 0;
@@ -180,197 +181,192 @@ button:hover {
   -moz-transition: all 0.2s ease-in-out;
   -ms-transition: all 0.2s ease-in-out;
   -o-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-}
+  transition: all 0.2s ease-in-out; }
 
+/* line 104, ../../components/sass/core/_base.scss */
 #addButton:hover, #removeButton:hover {
-  background: #50666D;
-}
+  background: #50666D; }
 
 /*----------------------- @Mobile -----------------------------*/
 @media all and (max-width: 750px) {
+  /* line 4, ../../components/sass/layout/_mobile.scss */
   body {
     font-size: 9px;
     background: #3399DB;
-    padding: 10px 5%;
-  }
+    padding: 10px 5%; }
 
+  /* line 9, ../../components/sass/layout/_mobile.scss */
   header, section, footer {
     float: left;
     width: 100%;
     margin: 2px 5px;
     padding: 0;
-    text-align: center;
-  }
+    text-align: center; }
 
+  /* line 16, ../../components/sass/layout/_mobile.scss */
   header {
-    text-align: center;
-  }
+    text-align: center; }
 
+  /* line 19, ../../components/sass/layout/_mobile.scss */
   footer {
-    font-size: 20px;
-  }
+    font-size: 20px; }
 
+  /* line 22, ../../components/sass/layout/_mobile.scss */
   article {
     width: 100%;
     margin: 10px 0;
-    background: #3399DB;
-  }
-  article p {
-    text-align: left;
-  }
-}
+    background: #3399DB; }
+    /* line 26, ../../components/sass/layout/_mobile.scss */
+    article p {
+      text-align: left; } }
 /*----------------------- @Tablets -----------------------------*/
 @media all and (min-width: 701px) and (max-width: 1440px) {
+  /* line 3, ../../components/sass/layout/_tablet.scss */
   header, section, footer {
     width: 94%;
     margin: 10px 3.5%;
     padding: 3rem;
     text-align: left;
-    background: #3399DB;
-  }
+    background: #3399DB; }
 
+  /* line 10, ../../components/sass/layout/_tablet.scss */
   article {
     width: 100%;
     height: 350px;
     margin: 10px 0;
-    background: #3399DB;
-  }
-  article p {
-    text-align: left;
-  }
+    background: #3399DB; }
+    /* line 15, ../../components/sass/layout/_tablet.scss */
+    article p {
+      text-align: left; }
 
+  /* line 19, ../../components/sass/layout/_tablet.scss */
   form, aside {
     width: 100%;
     padding: 10px;
     text-align: left;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-  }
+    border: 1px solid rgba(255, 255, 255, 0.3); }
 
+  /* line 25, ../../components/sass/layout/_tablet.scss */
   aside {
-    height: 130px;
-  }
+    height: 130px; }
 
+  /* line 28, ../../components/sass/layout/_tablet.scss */
   form {
-    min-height: 380px;
-  }
+    min-height: 380px; }
 
+  /* line 31, ../../components/sass/layout/_tablet.scss */
   section {
     height: auto;
     text-align: left;
-    background: #3399DB url(img/tablet.png) no-repeat;
-  }
-}
+    background: #3399DB url(img/tablet.png) no-repeat; } }
 /*----------------------- @Desktop -----------------------------*/
 @media all and (max-width: 700px) {
+  /* line 4, ../../components/sass/layout/_layout.scss */
   body {
     font-size: 9px;
     background: #3399DB;
-    padding: 10px 5%;
-  }
+    padding: 10px 5%; }
 
+  /* line 9, ../../components/sass/layout/_layout.scss */
   header, section, footer {
     float: left;
     width: 100%;
     margin: 2px 5px;
     padding: 0;
-    text-align: center;
-  }
+    text-align: center; }
 
+  /* line 16, ../../components/sass/layout/_layout.scss */
   header {
-    text-align: center;
-  }
+    text-align: center; }
 
+  /* line 19, ../../components/sass/layout/_layout.scss */
   footer {
-    font-size: 20px;
-  }
+    font-size: 20px; }
 
+  /* line 22, ../../components/sass/layout/_layout.scss */
   section {
     height: auto;
     text-align: left;
-    margin: 0;
-  }
-}
+    margin: 0; } }
 /*----------------------- @Large Screens -----------------------------*/
 @media all and (max-width: 700px) {
+  /* line 4, ../../components/sass/layout/_large.scss */
   body {
     font-size: 9px;
     background: #3399DB;
-    padding: 10px 5%;
-  }
+    padding: 10px 5%; }
 
+  /* line 9, ../../components/sass/layout/_large.scss */
   header, section, footer {
     float: left;
     width: 100%;
     margin: 2px 5px;
     padding: 0;
-    text-align: center;
-  }
+    text-align: center; }
 
+  /* line 16, ../../components/sass/layout/_large.scss */
   header {
-    text-align: center;
-  }
+    text-align: center; }
 
+  /* line 19, ../../components/sass/layout/_large.scss */
   footer {
-    font-size: 20px;
-  }
+    font-size: 20px; }
 
+  /* line 22, ../../components/sass/layout/_large.scss */
   article {
     width: 100%;
     margin: 10px 0;
-    background: #3399DB;
-  }
-  article p {
-    text-align: left;
-  }
+    background: #3399DB; }
+    /* line 26, ../../components/sass/layout/_large.scss */
+    article p {
+      text-align: left; }
 
+  /* line 30, ../../components/sass/layout/_large.scss */
   .summary {
     font-size: 20px;
     padding: 15px;
     padding-top: 15px;
-    padding-left: 50px;
-  }
+    padding-left: 50px; }
 
+  /* line 36, ../../components/sass/layout/_large.scss */
   form, aside {
     float: left;
     width: 100%;
     padding: 2px;
     text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-  }
-  form ul, form li, form p, aside ul, aside li, aside p {
-    text-align: left;
-  }
+    border: 1px solid rgba(255, 255, 255, 0.3); }
+    /* line 42, ../../components/sass/layout/_large.scss */
+    form ul, form li, form p, aside ul, aside li, aside p {
+      text-align: left; }
 
+  /* line 46, ../../components/sass/layout/_large.scss */
   nav ul {
     display: block;
     padding: 10px 20px;
-    width: 100%;
-  }
+    width: 100%; }
 
+  /* line 51, ../../components/sass/layout/_large.scss */
   nav ul li {
-    padding: 4px;
-  }
+    padding: 4px; }
 
+  /* line 54, ../../components/sass/layout/_large.scss */
   nav {
-    margin-bottom: 10px;
-  }
+    margin-bottom: 10px; }
 
+  /* line 57, ../../components/sass/layout/_large.scss */
   aside {
     height: 150px;
     width: 90%;
     margin: 10px;
     padding-left: 10px;
-    text-align: left;
-  }
-  aside h3 {
-    font-size: 20px;
-    width: 100%;
-  }
+    text-align: left; }
+    /* line 63, ../../components/sass/layout/_large.scss */
+    aside h3 {
+      font-size: 20px;
+      width: 100%; }
 
+  /* line 68, ../../components/sass/layout/_large.scss */
   section {
     height: auto;
     text-align: left;
-    margin: 0;
-  }
-}
+    margin: 0; } }

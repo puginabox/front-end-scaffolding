@@ -2,10 +2,11 @@
 
 builds
 node_modules
-client/components/vendor
+development/components/vendor
+development/styles
+development/scripts
 img
 .DS_Store
 .sass-cache
 npm-debug.log
-client/js
 
