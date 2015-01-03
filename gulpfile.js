@@ -1,6 +1,6 @@
 var gulp = require('gulp');
-// namespaced depenencies sorted for us!
-var plug = require('gulp-load-plugins')(); //run straight way
+// namespaced depenencies all sorted...
+var plug = require('gulp-load-plugins')(); //run to the fore
 //var connect = require('gulp-connect');
 
 /*******************************************  Variable Declarations ****************/
@@ -17,26 +17,26 @@ var environment,
 // Array in order of load. destintations plugged into variables for clarity
 jsSources = [
     // project scripts
-    'client/components/js/app.module.js',
-    'client/components/js/core/core.module.js'
-//    'client/components/js/core/config.js',
-//    'client/components/js/feature/feature.js',
-//    'client/components/js/feature/featureController.js',
-//    'client/components/js/dirFeature.js'
+    'staging/components/js/app.module.js',
+    'staging/components/js/core/core.module.js'
+//    'staging/components/js/core/config.js',
+//    'staging/components/js/feature/feature.js',
+//    'staging/components/js/feature/featureController.js',
+//    'staging/components/js/dirFeature.js'
 ];
-sassSources = ['client/components/sass/master.scss'];
+sassSources = ['staging/components/sass/master.scss'];
 htmlSources = [buildDirectory + '*.html'];
 jsonSources = [buildDirectory + 'js/*.json'];
 
 
 /**************** BUILDS ****************/
-environment = process.env.NODE_ENV || 'development';
+environment = process.env.NODE_ENV || 'staging';
 /* 
     for Windoze users, just change this line to 
     environment = process.env.NODE_ENV || 'production';
 */
-if (environment==='development') {
-    buildDirectory = 'builds/development/'; 
+if (environment==='staging') {
+    buildDirectory = 'builds/staging/'; 
     //dont forget trailing slash for concatination!
     sassStyle = 'expanded';
 } else {
@@ -58,12 +58,13 @@ gulp.task('styles', function(){
             errorHandler: onError
         }))    
         .pipe(plug.compass({
-            sass: 'components/sass',
+            sass: 'staging/components/sass',
             image: buildDirectory + 'img',
             style: sassStyle
         }))
 //        .on('error', plug.utils.log)
-      .pipe(gulp.dest(buildDirectory + 'css'))
+//      .pipe(gulp.dest(buildDirectory + 'css')) // this for builds
+        .pipe(gulp.dest('staging/components/css'))
         .pipe(plug.notify({
             message: 'Styles task complete'
         }))    
@@ -76,13 +77,13 @@ gulp.task('annotate', function(){
         .src(jsSources)
         .pipe(plug.ngAnnotate({ add: true, single_quotes: true}))
         .pipe(plug.uglify({mangle: true}))
-        .pipe(gulp.dest('client/js'));
+        .pipe(gulp.dest('staging/js'));
     
 });
 
 //------------------------------------- JSHINT
 // Hint all of our custom developed Javascript to make sure things are clean
-//        .pipe(plug.jshint('client/components/js/.jshintrc'))
+//        .pipe(plug.jshint('staging/components/js/.jshintrc'))
 //        .pipe(plug.jshint.reporter('jshint-stylish'));
 gulp.task('jshint', function () {
     return gulp.src('./src/scripts/*.js')
@@ -113,7 +114,7 @@ gulp.task('scripts', function () {
 });
 
 //------------------------------------- COPY
-// Copy fonts from a module outside of our project (like Bower)
+// Copy fonts & other files
 gulp.task('copyfiles', function () {
     gulp.src('./source_directory/**/*.{ttf,woff,eof,svg}')
     .pipe(gulp.dest('./fonts'));
@@ -135,7 +136,9 @@ gulp.task('watch', function() {
         .on('change', watchLog);
 
     function watchLog(event) {
-        console.log('*** File ' + event.path + ' was ' + event.type + ', running tasks...');
+        console.log('*** File ' +
+                    event.path + ' was ' +
+                    event.type + ', running tasks...');
     }
 });
 

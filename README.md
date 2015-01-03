@@ -4,6 +4,12 @@ Features include MVC modularity through a local server/live-reload, Gulp automat
 
 Git repo: http://github.com/puginabox/front-end-scaffolding.git
 
+Config is broken out into three builds; 
+
+    1 - Development - the sandbox for all development
+    2 - Staging - a build for debugging with unminified but concatenated CSS and JS, including all commenting/line numbers etc
+    3 - Production - ready for deployment
+
 ## Still yet to finish:
 - Compass auto-compiling & autoprefixing
 - JS/CSS concat
