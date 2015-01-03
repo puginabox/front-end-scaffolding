@@ -1,6 +1,6 @@
-/*----------------------- @small -----------------------------*/
+/*----------------------- @Mobile -----------------------------*/
 
-@media all and (max-width: 700px) {
+@media all and (max-width: 750px) {
     body {
         font-size: 9px;
         background: $navBG;
@@ -26,48 +26,5 @@
         p {
             text-align: left;
         }
-    }
-    .summary {
-        font-size: 20px;
-        padding: 15px;
-        padding-top: 15px;
-        padding-left: 50px;
-    }
-    form, aside {
-        float: left;
-        width: 100%;
-        padding: 2px;
-        text-align: center;
-        border: 1px solid rgba(#fff, 0.3);
-        ul, li, p {
-            text-align: left;
-        }
-    }
-    nav ul {
-        display: block;
-        padding: 10px 20px;
-        width: 100%;
-    }
-    nav ul li {
-        padding: 4px;
-    }
-    nav {
-        margin-bottom: 10px;
-    }
-    aside {
-        height: 150px;
-        width: 90%;
-        margin: 10px;
-        padding-left: 10px;
-        text-align: left;
-        h3 {
-            font-size: 20px;
-            width: 100%;
-        }
-    }
-    section {
-        height: auto;
-        text-align: left;
-        margin: 0;
     }
 } // end of @media

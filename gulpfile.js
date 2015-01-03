@@ -58,13 +58,13 @@ gulp.task('styles', function(){
             errorHandler: onError
         }))    
         .pipe(plug.compass({
-            sass: 'development/components/sass',
+            sass: sassSources,
             image: buildDirectory + 'img',
             style: sassStyle
         }))
 //        .on('error', plug.utils.log)
 //      .pipe(gulp.dest(buildDirectory + 'css')) // this for builds
-        .pipe(gulp.dest('staging/components/css'))
+        .pipe(gulp.dest('development/styles'))
         .pipe(plug.notify({
             message: 'Styles task complete'
         }))    
@@ -77,7 +77,7 @@ gulp.task('annotate', function(){
         .src(jsSources)
         .pipe(plug.ngAnnotate({ add: true, single_quotes: true}))
         .pipe(plug.uglify({mangle: true}))
-        .pipe(gulp.dest('staging/js'));
+        .pipe(gulp.dest('staging/scripts'));
     
 });
 
@@ -87,49 +87,46 @@ gulp.task('annotate', function(){
 //        .pipe(plug.jshint.reporter('jshint-stylish'));
 gulp.task('jshint', function () {
     return gulp.src('./src/scripts/*.js')
-    .pipe(plug.plumber({
-        errorHandler: onError
-    }))
-    .pipe(plug.jshint())
-    .pipe(plug.jshint.reporter('default'))
-    .pipe(plug.notify({
-        message: 'JS Hinting task complete'
-    }));
+        .pipe(plug.plumber({
+            errorHandler: onError
+        }))
+        .pipe(plug.jshint())
+        .pipe(plug.jshint.reporter('default'))
+        .pipe(plug.notify({
+            message: 'JS Hinting task complete'
+        }));
 });
 
 //------------------------------------- SCRIPTS
 // Combine/Minify/Clean Javascript files
 gulp.task('scripts', function () {
-    return gulp.src('./src/scripts/*.js')
-    .pipe(plug.plumber({
-        errorHandler: onError
-    }))
-    .pipe(plug.concat('app.min.js'))
-//    .pipe(stripDebug())
-    .pipe(plug.uglify())
-    .pipe(gulp.dest('./js/'))
-    .pipe(plug.notify({
-        message: 'Scripts task complete'
-    }));
+        return gulp.src('./src/scripts/*.js')
+        .pipe(plug.plumber({
+            errorHandler: onError
+        }))
+        .pipe(plug.concat('app.min.js'))
+    //    .pipe(stripDebug())
+        .pipe(plug.uglify())
+        .pipe(gulp.dest('./js/'))
+        .pipe(plug.notify({
+            message: 'Scripts task complete'
+        }));
 });
 
 //------------------------------------- COPY
 // Copy fonts & other files
-gulp.task('copyfiles', function () {
-    gulp.src('./source_directory/**/*.{ttf,woff,eof,svg}')
-    .pipe(gulp.dest('./fonts'));
-});
+//gulp.task('copyfiles', function () {
+//    gulp.src('./source_directory/**/*.{ttf,woff,eof,svg}')
+//    .pipe(gulp.dest('./fonts'));
+//});
 
 //------------------------------------- SERVER
 gulp.task('server', function () {
-    plug.connect.server({
+    return plug.connect.server({
             root: buildDirectory,
             port: 8080,
             livereload: true
-        })
-        .pipe(plug.notify({
-            message: 'Server running: localhost:8080'
-        }));
+        });
 });
 
 //------------------------------------- WATCH
@@ -152,7 +149,7 @@ gulp.task('watch', function() {
 // Gulp plumber error handler
 var onError = function (err) {
     console.log(err);
-}
+};
 
 // Lets us type "gulp" on the command line and run all of our tasks
 gulp.task('default', ['annotate', 'jshint', 'scripts', 'styles', 'watch', 'server']);
