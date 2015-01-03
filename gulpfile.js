@@ -126,7 +126,10 @@ gulp.task('server', function () {
             root: buildDirectory,
             port: 8080,
             livereload: true
-        });
+        })
+        .pipe(plug.notify({
+            message: 'Server running: localhost:8080'
+        }));
 });
 
 //------------------------------------- WATCH
