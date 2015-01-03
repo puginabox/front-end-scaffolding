@@ -152,7 +152,7 @@ var onError = function (err) {
 }
 
 // Lets us type "gulp" on the command line and run all of our tasks
-gulp.task('default', ['annotate', 'jshint', 'scripts', 'styles', 'watch']);
+gulp.task('default', ['annotate', 'jshint', 'scripts', 'styles', 'watch', 'server']);
 
 
 
