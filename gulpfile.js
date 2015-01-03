@@ -52,24 +52,26 @@ if (environment==='staging') {
 //------------------------------------- STYLES
 // Process, combine & minify Sass/Compass stylesheets
 gulp.task('styles', function(){
-    return gulp
-        .src(sassSources)
-        .pipe(plug.plumber({
-            errorHandler: onError
-        }))    
-        .pipe(plug.compass({
-            sass: sassSources,
-            image: buildDirectory + 'img',
-            style: sassStyle
-        }))
+
 //        .on('error', plug.utils.log)
 //      .pipe(gulp.dest(buildDirectory + 'css')) // this for builds
-        .pipe(gulp.dest('development/styles'))
-        .pipe(plug.notify({
-            message: 'Styles task complete'
-        }))    
-      .pipe(plug.connect.reload());    
+
+
+
+    return gulp
+        .src('development/components/sass/*.scss')
+        .pipe(plug.compass({
+        css: 'development/styles/css',
+        sass: 'development/components/sass',
+        image: 'development/img',
+        style: sassStyle
+    }))
+    .pipe(gulp.dest('development/styles'));
 });
+
+
+
+
 
 //------------------------------------- ANNOTATE
 gulp.task('annotate', function(){
