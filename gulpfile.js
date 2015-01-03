@@ -24,7 +24,7 @@ jsSources = [
 //    'staging/components/js/feature/featureController.js',
 //    'staging/components/js/dirFeature.js'
 ];
-sassSources = ['staging/components/sass/master.scss'];
+sassSources = ['development/components/sass/'];
 htmlSources = [buildDirectory + '*.html'];
 jsonSources = [buildDirectory + 'js/*.json'];
 
@@ -58,7 +58,7 @@ gulp.task('styles', function(){
             errorHandler: onError
         }))    
         .pipe(plug.compass({
-            sass: 'staging/components/sass',
+            sass: 'development/components/sass',
             image: buildDirectory + 'img',
             style: sassStyle
         }))
@@ -132,7 +132,7 @@ gulp.task('server', function () {
 //------------------------------------- WATCH
 gulp.task('watch', function() {
     return gulp
-        .watch(jsSources, ['annotate'])
+    .watch(sassSources, ['styles'])    
         .on('change', watchLog);
 
     function watchLog(event) {
