@@ -16,12 +16,12 @@ var environment,
 // Array in order of load. destintations plugged into variables for clarity
 jsSources = [
     // project scripts
-    'staging/components/js/app.module.js',
-    'staging/components/js/core/core.module.js'
-//    'staging/components/js/core/config.js',
-//    'staging/components/js/feature/feature.js',
-//    'staging/components/js/feature/featureController.js',
-//    'staging/components/js/dirFeature.js'
+    'development/components/js/app.module.js',
+    'development/components/js/core/core.module.js',
+    'development/components/js/core/config.js',
+    'development/components/js/feature/feature.js',
+    'development/components/js/feature/featureController.js',
+    'development/components/js/dirFeature.js'
 ];
 sassSources = ['development/components/sass/*.scss'];
 htmlSources = [buildDirectory + '*.html'];
@@ -93,28 +93,26 @@ gulp.task('annotate', function(){
 //        .pipe(plug.jshint('staging/components/js/.jshintrc'))
 //        .pipe(plug.jshint.reporter('jshint-stylish'));
 gulp.task('jshint', function () {
-    return gulp.src('./src/scripts/*.js')
-        .pipe(plug.plumber({
-            errorHandler: onError
-        }))
+    return gulp.src(jsSources)
+
         .pipe(plug.jshint())
         .pipe(plug.jshint.reporter('default'))
-        .pipe(plug.notify({
-            message: 'JS Hinting task complete'
+        .pipe(plug.plumber({
+            errorHandler: onError
         }));
 });
 
 //------------------------------------- SCRIPTS
 // Combine/Minify/Clean Javascript files
 gulp.task('scripts', function () {
-        return gulp.src('./src/scripts/*.js')
+    return gulp.src(jsSources)
         .pipe(plug.plumber({
             errorHandler: onError
         }))
-        .pipe(plug.concat('app.min.js'))
+        .pipe(plug.concat('behavior.min.js'))
     //    .pipe(stripDebug())
         .pipe(plug.uglify())
-        .pipe(gulp.dest('./js/'))
+        .pipe(gulp.dest('development/scripts/'))
         .pipe(plug.notify({
             message: 'Scripts task complete'
         }));

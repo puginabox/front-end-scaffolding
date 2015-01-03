@@ -2,9 +2,9 @@
 
 builds
 node_modules
-development/components/vendor
-development/styles
-development/scripts
+development/components/vendor/
+development/styles/
+development/scripts/
 img
 .DS_Store
 .sass-cache
