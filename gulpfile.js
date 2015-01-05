@@ -16,17 +16,17 @@ var environment,
 // Array in order of load. destintations plugged into variables for clarity
 jsSources = [
     // project scripts
-    'development/components/js/app.module.js',
-    'development/components/js/core/core.module.js',
-    'development/components/js/core/config.js',
-    'development/components/js/feature/feature.js',
-    'development/components/js/feature/featureController.js',
-    'development/components/js/dirFeature.js'
+    'development/components/scripts/app.module.js',
+    'development/components/scripts/core/core.module.js',
+    'development/components/scripts/core/config.js',
+    'development/components/scripts/feature/feature.js',
+    'development/components/scripts/feature/featureController.js',
+    'development/components/scripts/dirFeature.js'
 ];
-sassSources = ['development/components/sass/*.scss'];
+sassSources = ['development/components/sass/**/*.scss'];
 buildDirectory = 'development';
 htmlSources = [buildDirectory + '*.html'];
-jsonSources = [buildDirectory + 'js/*.json'];
+jsonSources = [buildDirectory + 'scripts/*.json'];
 
 
 

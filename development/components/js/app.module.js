@@ -4,7 +4,6 @@
     
     // The App Agregator (like master.scss in Sass)
     angular.module('app', [
-
         /* Needed by all modules */ 
         'app.core',
         'app.config',
