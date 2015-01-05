@@ -1,7 +1,7 @@
 var gulp = require('gulp');
 // namespaced depenencies all sorted...
 var plug = require('gulp-load-plugins')(); //run to the fore
-
+var connect = require('gulp-connect');
 /*******************************************  Variable Declarations ****************/
 //  Done separately, since assigns are based on the build
 var environment,
@@ -24,6 +24,7 @@ jsSources = [
     'development/components/js/dirFeature.js'
 ];
 sassSources = ['development/components/sass/*.scss'];
+buildDirectory = 'development';
 htmlSources = [buildDirectory + '*.html'];
 jsonSources = [buildDirectory + 'js/*.json'];
 
@@ -120,11 +121,11 @@ gulp.task('scripts', function () {
 
 //------------------------------------- SERVER
 gulp.task('server', function () {
-    return plug.connect.server({
-            root: buildDirectory,
-            port: 8080,
-            livereload: true
-        });
+    connect.server({
+        root: buildDirectory,
+        port: 8080,
+        livereload: true
+    });
 });
 
 //------------------------------------- WATCH
