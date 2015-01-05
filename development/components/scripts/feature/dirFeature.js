@@ -1,5 +1,4 @@
 (function() {
     'use strict';
-    console.log('3-dirFeature loaded');
-    
+    console.log('3-dirFeature loaded');    
 })();

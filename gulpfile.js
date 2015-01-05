@@ -130,18 +130,17 @@ gulp.task('server', function () {
 
 //------------------------------------- WATCH
 gulp.task('watch', function() {
-    return gulp
-    .watch(sassSources, ['styles'])    
-        .on('change', watchLog);
-
+    gulp.watch(sassSources, ['styles']).on('change', watchLog);
+    gulp.watch(jsSources, ['scripts']).on('change', watchLog);    
+    gulp.watch('development/*.html', ['html']).on('change', watchLog);    
+//    gulp.watch('development/scripts/*.json', ['json']).on('change', watchLog);   
+    
     function watchLog(event) {
         console.log('*** File ' +
                     event.path + ' was ' +
                     event.type + ', running tasks...');
     }
 });
-
-
 
 /**************** GULP DEFAULT ****************/
 
