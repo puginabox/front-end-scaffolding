@@ -1,0 +1,15 @@
+{
+    "name": "test",
+    "options": {},
+    "people": [
+        {
+            "name": "oliver",
+            "faction": "green",
+            "type": "even"
+        }, {
+            "name": "pepper",
+            "faction": "red",
+            "type": "odd"
+        }
+      ]
+}

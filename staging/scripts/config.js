@@ -1,1 +1,0 @@
-!function(){"use strict";console.log("2-config loaded");var e=angular.module("app.core");e.config(["$routeProvider",function(e){e.when("/feature",{templateUrl:"feature/feature.html",controller:"Feature"}).otherwise({redirectTo:"/"})}])}();

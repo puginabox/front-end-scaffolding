@@ -5,6 +5,8 @@ node_modules
 development/components/vendor/
 development/styles/
 development/scripts/
+staging/
+production/
 img
 .DS_Store
 .sass-cache

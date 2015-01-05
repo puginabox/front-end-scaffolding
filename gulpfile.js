@@ -2,15 +2,14 @@ var gulp = require('gulp');
 // namespaced depenencies all sorted...
 var plug = require('gulp-load-plugins')(); //run to the fore
 var connect = require('gulp-connect');
+var minifyHTML = require('gulp-minify-html');
 /*******************************************  Variable Declarations ****************/
 //  Done separately, since assigns are based on the build
-var environment,
+var buildDirectory,
     jsSources,
     sassSources,
     htmlSources,
-    jsonSources,
-    buildDirectory,
-    sassStyle;
+    jsonSources;
 
 /*******************************************  Variable Assignments ****************/
 // Array in order of load. destintations plugged into variables for clarity
@@ -24,13 +23,8 @@ jsSources = [
     'development/components/scripts/dirFeature.js'
 ];
 sassSources = ['development/components/sass/**/*.scss'];
-buildDirectory = 'development';
-htmlSources = [buildDirectory + '*.html'];
-jsonSources = [buildDirectory + 'scripts/*.json'];
-
-
-
-
+htmlSources = ['development/*.html'];
+jsonSources = ['development/components/scripts/*.json'];
 
 
 /******************************************************* Tasks ****************/
@@ -43,7 +37,7 @@ gulp.task('styles', function(){
     return gulp
         .src(sassSources)
         .pipe(plug.compass({
-        css: 'development/styles/css',
+        css: 'development/styles',
         sass: 'development/components/sass',
         image: 'development/img',
         style: 'nested',
@@ -62,7 +56,7 @@ gulp.task('styles', function(){
         return gulp
         .src(sassSources)
         .pipe(plug.compass({
-            css: 'development/styles/css',
+            css: 'development/styles',
             sass: 'development/components/sass',
             image: 'development/img',
             style: 'compact',
@@ -85,7 +79,7 @@ gulp.task('annotate', function(){
         .src(jsSources)
         .pipe(plug.ngAnnotate({ add: true, single_quotes: true}))
         .pipe(plug.uglify({mangle: true}))
-        .pipe(gulp.dest('staging/scripts'));
+        .pipe(gulp.dest('builds/staging/scripts'));
     
 });
 
@@ -119,6 +113,21 @@ gulp.task('scripts', function () {
         }));
 });
 
+gulp.task('html', function() {
+    return gulp.src('development/*.html')
+        .pipe(minifyHTML())
+        .pipe(gulp.dest('builds/staging'))
+        .pipe(connect.reload());
+}); 
+
+gulp.task('jsonMinify', function() {
+    return gulp.src('development/components/scripts/*.json')
+        .pipe(plug.jsonminify())
+        .pipe(gulp.dest('builds/staging/scripts'))
+        .pipe(connect.reload());
+});
+
+
 //------------------------------------- SERVER
 gulp.task('server', function () {
     connect.server({
@@ -150,9 +159,7 @@ var onError = function (err) {
 };
 
 gulp.task('default', ['annotate', 'jshint', 'scripts', 'styles', 'watch', 'server']);
-gulp.task('deploy', ['annotate', 'jshint', 'scripts', 'styles', 'minifyCSS', 'watch', 'server']);
-
-//gulp.task('default', ['annotate', 'jshint', 'js', 'compass', 'jsonminify']);
+gulp.task('deploy', ['annotate', 'jshint', 'scripts', 'jsonMinify', 'styles', 'minifyCSS', 'html']);
 
 
 

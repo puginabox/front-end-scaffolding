@@ -1,1 +1,0 @@
-!function(){"use strict";console.log("Welcome to the Gulped App!");angular.module("app",["app.core","app.config","app.feature"])}();
