@@ -25,7 +25,7 @@ jsSources = [
 sassSources = ['development/components/sass/**/*.scss'];
 htmlSources = ['development/*.html'];
 jsonSources = ['development/components/scripts/*.json'];
-
+buildDirectory = 'development/';
 
 /******************************************************* Tasks ****************/
 
@@ -129,12 +129,20 @@ gulp.task('jsonMinify', function() {
 
 
 //------------------------------------- SERVER
-gulp.task('server', function () {
-    connect.server({
-        root: buildDirectory,
-        port: 8080,
-        livereload: true
-    });
+//gulp.task('server', function () {
+//    connect.server({
+//        root: buildDirectory,
+//        port: 8080,
+//        livereload: true
+//    });
+//});
+
+gulp.task('server', function() {
+    gulp.src(buildDirectory)
+    .pipe(plug.webserver({
+        livereload: true,
+        open: true
+    }));
 });
 
 //------------------------------------- WATCH
